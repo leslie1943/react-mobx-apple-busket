@@ -10,7 +10,13 @@ import './styles/appleItem.css'
 
 ReactDOM.render(
   <Provider store={rootStore}>
-    <App />
+    <div
+      style={{
+        marginTop: '50px',
+      }}
+    >
+      <App />
+    </div>
   </Provider>,
   document.getElementById('root')
 )

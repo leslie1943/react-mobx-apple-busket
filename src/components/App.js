@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Todo from './Todo'
 import AppBasket from './AppleBasket'
+import { Radio } from 'antd'
 
 import { inject, observer } from 'mobx-react'
 
@@ -11,7 +12,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      part: 'apple',
+      show: 'apple',
     }
   }
   componentDidMount() {
@@ -20,18 +21,22 @@ class App extends Component {
   onChangeFn = (e) => {
     console.info(e)
     this.setState({
-      part: e.target.defaultValue,
+      show: e.target.value,
     })
   }
   render() {
     return (
       <section>
         <div>
-          <input
+          <Radio.Group onChange={this.onChangeFn} value={this.state.show}>
+            <Radio value="apple">Show Apple demo</Radio>
+            <Radio value="todo">Show todo demo</Radio>
+          </Radio.Group>
+          {/* <input
             type="radio"
             name="part"
             value="apple"
-            checked={this.state.part === 'apple'}
+            checked={this.state.show === 'apple'}
             onChange={this.onChangeFn}
           />
           Apple
@@ -39,13 +44,13 @@ class App extends Component {
             type="radio"
             name="part"
             value="todo"
-            checked={this.state.part === 'todo'}
+            checked={this.state.show === 'todo'}
             onChange={this.onChangeFn}
           />
-          Todo
+          Todo*/}
         </div>
-        {this.state.part === 'todo' && <Todo />}
-        {this.state.part === 'apple' && <AppBasket />}
+        {this.state.show === 'todo' && <Todo />}
+        {this.state.show === 'apple' && <AppBasket />}
       </section>
     )
   }
