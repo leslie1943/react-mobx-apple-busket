@@ -40,7 +40,11 @@ class AppleBusket extends React.Component {
         </div>
 
         <div className="btn-div">
-          <button className={buttonDisable ? 'disabled' : ''} onClick={addItem}>
+          <button
+            disabled={buttonDisable}
+            className={buttonDisable ? 'disabled' : ''}
+            onClick={addItem}
+          >
             {buttonText}
           </button>
         </div>
