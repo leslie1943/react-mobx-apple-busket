@@ -3,7 +3,7 @@ import AppleItem from './AppleItem'
 import { inject, observer } from 'mobx-react'
 
 // 通过 inject 这个装饰器把 todo 对象注入到这个组件中的 props
-@inject('apple')
+@inject('store')
 @observer
 class AppleBusket extends React.Component {
   render() {
@@ -15,7 +15,7 @@ class AppleBusket extends React.Component {
       notEatenWeight,
       eatenQuantity,
       eatenWeight,
-    } = this.props.apple
+    } = this.props.store.apple
     return (
       <div className="appleBusket">
         <div className="title">苹果篮子</div>

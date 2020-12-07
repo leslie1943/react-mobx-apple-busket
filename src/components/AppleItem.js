@@ -4,11 +4,11 @@ import img from '../images/apple.png'
 import AppleEmpty from './AppleEmpty'
 
 // 通过 inject 这个装饰器把 todo 对象注入到这个组件中的 props
-@inject('apple')
+@inject('store')
 @observer
 class AppleItem extends React.Component {
   render() {
-    const { freshItems, eatItem } = this.props.apple
+    const { freshItems, eatItem } = this.props.store.apple
     return (
       <div>
         {freshItems.length > 0 ? (

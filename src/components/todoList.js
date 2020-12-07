@@ -2,11 +2,11 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 // 通过 inject 这个装饰器把 todo 对象注入到这个组件中的 props
-@inject('todo')
+@inject('store')
 @observer
 class TodoList extends React.Component {
   render() {
-    const { filterTodo, todoDelete, todoChange } = this.props.todo
+    const { filterTodo, todoDelete, todoChange } = this.props.store.todo
     return (
       <section className="main">
         <input className="toggle-all" type="checkbox" />

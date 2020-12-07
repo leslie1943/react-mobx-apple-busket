@@ -2,7 +2,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 // 通过 inject 这个装饰器把 todo 对象注入到这个组件中的 props
-@inject('todo')
+@inject('store')
 @observer
 class TodoExtra extends React.Component {
   render() {
@@ -11,7 +11,7 @@ class TodoExtra extends React.Component {
       changeFilter,
       filter,
       todoClearDone,
-    } = this.props.todo
+    } = this.props.store.todo
     return (
       <footer className="footer">
         <span className="todo-count">

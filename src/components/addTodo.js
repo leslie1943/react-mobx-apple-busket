@@ -2,7 +2,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 // 通过 inject 这个装饰器把 todo 对象注入到这个组件中的 props
-@inject('todo')
+@inject('store')
 @observer
 class AddTodo extends React.Component {
   addTodo = (event) => {
@@ -15,7 +15,7 @@ class AddTodo extends React.Component {
       if (taskName.trim().length === 0) {
         return
       }
-      this.props.todo.todoAdd(taskName)
+      this.props.store.todo.todoAdd(taskName)
       // 清空
       event.target.value = ''
     }
