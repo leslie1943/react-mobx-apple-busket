@@ -1,5 +1,6 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import { Button } from 'antd'
 
 // 通过 inject 这个装饰器把 todo 对象注入到这个组件中的 props
 @inject('store')
@@ -18,35 +19,35 @@ class TodoExtra extends React.Component {
           <strong>{unDoneTodoCount}</strong> item left
         </span>
         <ul className="filters">
-          <li>
-            <button
-              className={filter === 'All' ? 'selected' : ''}
+          <li style={{ paddingRight: 10 }}>
+            <Button
+              type={filter === 'All' ? 'primary' : 'dashed'}
               onClick={() => changeFilter('All')}
             >
               All
-            </button>
+            </Button>
           </li>
-          <li>
-            <button
-              className={filter === 'Active' ? 'selected' : ''}
+          <li style={{ paddingRight: 10 }}>
+            <Button
+              type={filter === 'Active' ? 'primary' : 'dashed'}
               onClick={() => changeFilter('Active')}
             >
               Active
-            </button>
+            </Button>
           </li>
-          <li>
-            <button
-              className={filter === 'Done' ? 'selected' : ''}
+          <li style={{ paddingRight: 10 }}>
+            <Button
+              type={filter === 'Done' ? 'primary' : 'dashed'}
               onClick={() => changeFilter('Done')}
             >
               Completed
-            </button>
+            </Button>
           </li>
         </ul>
 
-        <button onClick={todoClearDone} className="clear-completed">
+        <Button danger onClick={todoClearDone} className="clear-completed">
           Clear completed
-        </button>
+        </Button>
       </footer>
     )
   }
